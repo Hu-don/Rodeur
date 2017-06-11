@@ -47,7 +47,7 @@ public class activity_marche extends Activity implements SensorEventListener {
     MediaPlayer mp;
     Sensor countSensor;
     AnimationDrawable marcheAnimation;
-
+    SensorManager sManager;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +101,7 @@ public class activity_marche extends Activity implements SensorEventListener {
 
         if (dataVie < 1) {
             isDead = true;
+            ressurection();
             showSteps.setText("Resurection : " + ( stepsToBeAlive ) + " / " + stepRessurection);
         } else {
             isDead = false;
@@ -109,8 +110,7 @@ public class activity_marche extends Activity implements SensorEventListener {
 
 
         //Sensor
-        SensorManager sManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        Sensor countSensor = sManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
+        sManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         i(TAG, "•••••••••••••••• Sensor init ••••••••••••••••");
 
@@ -124,8 +124,6 @@ public class activity_marche extends Activity implements SensorEventListener {
             }
         });
     }
-
-
 
     /*
     Sensor step
@@ -302,7 +300,7 @@ public class activity_marche extends Activity implements SensorEventListener {
         sharedPref = getApplicationContext( ).getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         editor = sharedPref.edit( );
         editor.putInt("KEY_STEP", dataStep);
-        i(TAG, "•••••••••••••••• EDITOR STEP UPDATED ------- NOW " + dataStep + "  •••••••••••••••••");
+        i(TAG, "•••••••••••••••• EDITOR STEP UPDATED •••••••••••••••••");
         editor.apply( );
     }
 
@@ -345,7 +343,6 @@ public class activity_marche extends Activity implements SensorEventListener {
         getWindow( ).getAttributes( ).windowAnimations = R.style.Fade;
 
         i(TAG, "•••••••••••••••• onResume Loading •••••••••••••••••");
-        SensorManager sManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         Sensor countSensor = sManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
         if (countSensor != null) {
