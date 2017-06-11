@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.dimsun.game.rodeur.activity_main_menu"
+    android:layout_margin="16dp"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Infos perso : niveau, classe"
+        android:layout_marginTop="24dp"
+
+        />
+
+    <Button
+        android:layout_marginTop="24dp"
+        android:id="@+id/sauvegarde1"
+        android:text="Sauvegarde 1"
+        android:background="@drawable/button_style_menu"
+        android:textColor="@color/coolgray"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Infos perso : niveau, classe"
+        />
+
+    <Button
+        android:id="@+id/sauvegarde2"
+        android:text="Sauvegarde 2"
+        android:background="@drawable/button_style_menu"
+        android:textColor="@color/coolgray"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="24dp"
+        />
+
+    <TextView
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Infos perso : niveau, classe"
+        />
+
+    <Button
+        android:id="@+id/sauvegarde3"
+        android:text="Sauvegarde 3"
+        android:background="@drawable/button_style_menu"
+        android:textColor="@color/coolgray"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="50dp"
+        />
+
+
+</LinearLayout>
