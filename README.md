@@ -12,8 +12,10 @@ Le mode normal est pour les testeurs de l'application.
 
 A venir : 
 Meilleure gestion du cycle de vie, notamment pour le MediaPlayer,
-travail de l'integration des AnimationDrawables qui sont compressées.
-Developpement du Wiki de "A propos"
+travail de l'integration des AnimationDrawables qui sont compressées,
+developpement du Wiki de "A propos", 
+remaniement du systeme de resurection en sauvegardant les pas fait dans le cadre de la resurection.
+
 
 Sur le long terme : 
 Système d'inventaire, mode nuit, de nouvelles interactions, une amelioration des graphismes,
