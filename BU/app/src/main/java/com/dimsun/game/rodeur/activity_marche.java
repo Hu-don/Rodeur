@@ -79,6 +79,7 @@ public class activity_marche extends Activity implements SensorEventListener {
         SharedPreferences getSharedPref, sharedSettingsPref;
         getSharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor;
+        editor = getSharedPref.edit();
 
         String playNom = getSharedPref.getString("KEY_NAME", null);
         dataNiv = getSharedPref.getInt("KEY_NIVEAU", 0);
@@ -92,6 +93,8 @@ public class activity_marche extends Activity implements SensorEventListener {
         sharedSettingsPref = getApplicationContext( ).getSharedPreferences(SETTINGS_PREFS_NAME, Context.MODE_PRIVATE);
         hasSound = sharedSettingsPref.getBoolean("KEY_SON", false);
         hasDevMode = sharedSettingsPref.getBoolean("KEY_DEV_MODE", false);
+
+        editor.putInt("KEY_RES", stepsToBeAlive);
 
           /*
         Initialisation animation de marche 1 : guerrier, 2 : mage, 3 : patate

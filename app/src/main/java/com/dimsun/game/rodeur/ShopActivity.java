@@ -12,13 +12,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.dimsun.game.rodeur.Constantes.KEY_HAS_SOUND;
+import static com.dimsun.game.rodeur.Constantes.KEY_NIVEAU;
+import static com.dimsun.game.rodeur.Constantes.KEY_OR;
+import static com.dimsun.game.rodeur.Constantes.KEY_POINT;
+import static com.dimsun.game.rodeur.Constantes.KEY_VIE;
+import static com.dimsun.game.rodeur.Constantes.KEY_VIE_MAX;
+import static com.dimsun.game.rodeur.Constantes.PREFS_NAME;
+import static com.dimsun.game.rodeur.Constantes.SETTINGS_PREFS_NAME;
+
 
 public class ShopActivity extends AppCompatActivity {
 
     int prixPointDeNiveau, dataNiv, dataPoint, dataVie, dataOr, dataVieMax;
     final String TAG = ShopActivity.class.getSimpleName();
-    final String PREFS_NAME = "RODEUR_PREFS";
-    final String SETTINGS_PREFS_NAME = "SETTINGS_PREFS";
     Context context = this;
     TextView orActuelView;
     Button buyVie;
@@ -38,14 +45,14 @@ public class ShopActivity extends AppCompatActivity {
         goBackToMarche = (Button) findViewById(R.id.buy_continuer);
 
         SharedPreferences getSharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        dataNiv = getSharedPref.getInt("KEY_NIVEAU", 55);
-        dataVie = getSharedPref.getInt("KEY_VIE", 55);
-        dataPoint = getSharedPref.getInt("KEY_POINT", 55);
-        dataOr = getSharedPref.getInt("KEY_OR", 55);
-        dataVieMax = getSharedPref.getInt("KEY_VIE_MAX", 55);
+        dataNiv = getSharedPref.getInt(KEY_NIVEAU, 55);
+        dataVie = getSharedPref.getInt(KEY_VIE, 55);
+        dataPoint = getSharedPref.getInt(KEY_POINT, 55);
+        dataOr = getSharedPref.getInt(KEY_OR, 55);
+        dataVieMax = getSharedPref.getInt(KEY_VIE_MAX, 55);
 
         SharedPreferences sharedSettingsPref = getSharedPreferences(SETTINGS_PREFS_NAME, Context.MODE_PRIVATE);
-        hasSound = sharedSettingsPref.getBoolean("KEY_SON", false);
+        hasSound = sharedSettingsPref.getBoolean(KEY_HAS_SOUND, false);
 
 
         orActuelView = (TextView) findViewById(R.id.disOr);
@@ -118,7 +125,7 @@ public class ShopActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 toggleSound();
-                startActivity(new Intent(ShopActivity.this, activity_marche.class));
+                startActivity(new Intent(ShopActivity.this, MarcheActivity.class));
                 finish();
             }
         });
@@ -130,7 +137,7 @@ public class ShopActivity extends AppCompatActivity {
         SharedPreferences.Editor editor;
         sharedPref = getApplicationContext( ).getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         editor = sharedPref.edit();
-        editor.putInt("KEY_POINT", dataPoint);
+        editor.putInt(KEY_POINT, dataPoint);
         Log.i(TAG, "•••••••••••••••• EDITOR POINT UPDATED ------- NOW " +dataPoint+ "  •••••••••••••••••");
         editor.apply();
     }
@@ -140,7 +147,7 @@ public class ShopActivity extends AppCompatActivity {
         SharedPreferences.Editor editor;
         sharedPref = getApplicationContext( ).getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         editor = sharedPref.edit();
-        editor.putInt("KEY_VIE", dataVie);
+        editor.putInt(KEY_VIE, dataVie);
         Log.i(TAG, "•••••••••••••••• EDITOR POINT UPDATED ------- NOW " +dataVie+ "  •••••••••••••••••");
         editor.apply();
     }
@@ -150,7 +157,7 @@ public class ShopActivity extends AppCompatActivity {
         SharedPreferences.Editor editor;
         sharedPref = getApplicationContext( ).getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         editor = sharedPref.edit();
-        editor.putInt("KEY_OR", dataOr);
+        editor.putInt(KEY_OR, dataOr);
         Log.i(TAG, "•••••••••••••••• EDITOR POINT UPDATED ------- NOW " +dataOr+ "  •••••••••••••••••");
         editor.apply();
     }

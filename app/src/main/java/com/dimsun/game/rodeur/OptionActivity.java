@@ -8,18 +8,20 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import static com.dimsun.game.rodeur.Constantes.KEY_HAS_DEV_MODE;
+import static com.dimsun.game.rodeur.Constantes.KEY_HAS_SOUND;
+import static com.dimsun.game.rodeur.Constantes.KEY_STEP;
+import static com.dimsun.game.rodeur.Constantes.PREFS_NAME;
+import static com.dimsun.game.rodeur.Constantes.SETTINGS_PREFS_NAME;
 
 public class OptionActivity extends AppCompatActivity {
 
     boolean hasSound, hasDevMode;
     TextView stateSwitchSon, stateSwitchDevMode;
-    String PREFS_NAME = "RODEUR_PREFS";
-    String SETTINGS_PREFS_NAME = "SETTINGS_PREFS";
-    Button validerOptions, effacerData;
     MediaPlayer mp;
     int dataPas;
 
@@ -38,9 +40,9 @@ public class OptionActivity extends AppCompatActivity {
 
         stateSwitchDevMode = (TextView) findViewById(R.id.stateSwitchDevMode);
         stateSwitchSon = (TextView) findViewById(R.id.stateSwitchSon);
-        hasDevMode = sharedSettingsPref.getBoolean("KEY_DEV_MODE", false);
-        hasSound = sharedSettingsPref.getBoolean("KEY_SON", false);
-        dataPas = sharedPreferences.getInt("KEY_STEP", 0);
+        hasDevMode = sharedSettingsPref.getBoolean(KEY_HAS_DEV_MODE, false);
+        hasSound = sharedSettingsPref.getBoolean(KEY_HAS_SOUND, false);
+        dataPas = sharedPreferences.getInt(KEY_STEP, 0);
 
         //Ne pas déclarer les Switch avant le onCreate
         Switch switchDevMode, switchSon;
@@ -134,13 +136,13 @@ public class OptionActivity extends AppCompatActivity {
         SharedPreferences sharedSettingsPref = getSharedPreferences(SETTINGS_PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedSettingsPref.edit();
 
-        editor.putBoolean("KEY_SON", hasSound);
-        editor.putBoolean("KEY_DEV_MODE", hasDevMode);
+        editor.putBoolean(KEY_HAS_SOUND, hasSound);
+        editor.putBoolean(KEY_HAS_DEV_MODE, hasDevMode);
         editor.apply();
 
         SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editorShared = sharedPreferences.edit();
-        editorShared.putInt("KEY_STEP", dataPas);
+        editorShared.putInt(KEY_STEP, dataPas);
         editorShared.apply();
 
         tinySound();

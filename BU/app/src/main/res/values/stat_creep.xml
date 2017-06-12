@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Creep 1 : basique-->
+    <string name="creep1_nom">No Name</string>
+    <string name="creep1_classe">No Classe</string>
+    <string name="creep1_magie">No Magie</string>
+    <string name="creep1_chance">No Chance</string>
+    <string name="creep1_esquive">No Esquive</string>
+    <string name="creep1_force">No Force</string>
+    <string name="creep1_vie">No Vie</string>
+    <string name="creep1_defense">Defense</string>
+    <string name="creep1_xp">0</string>
+    <string name="creep1_or">0</string>
+
+    <!--Creep 2 : force-->
+    <string name="creep2_nom">No Name</string>
+    <string name="creep2_classe">No Classe</string>
+    <string name="creep2_magie">No Magie</string>
+    <string name="creep2_chance">No Chance</string>
+    <string name="creep2_esquive">No Esquive</string>
+    <string name="creep2_force">No Force</string>
+    <string name="creep2_vie">No Vie</string>
+    <string name="creep2_defense">Defense</string>
+
+    <!--Creep 3 : magie-->
+    <string name="creep3_nom">No Name</string>
+    <string name="creep3_classe">No Classe</string>
+    <string name="creep3_magie">No Magie</string>
+    <string name="creep3_chance">No Chance</string>
+    <string name="creep3_esquive">No Esquive</string>
+    <string name="creep3_force">No Force</string>
+    <string name="creep3_vie">No Vie</string>
+    <string name="creep3_defense">Defense</string>
+</resources>

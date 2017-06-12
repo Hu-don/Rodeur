@@ -11,6 +11,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import static com.dimsun.game.rodeur.Constantes.KEY_HAS_SOUND;
+import static com.dimsun.game.rodeur.Constantes.KEY_LAST_ENCOUNTER;
+import static com.dimsun.game.rodeur.Constantes.KEY_OR;
+import static com.dimsun.game.rodeur.Constantes.KEY_VIE;
+import static com.dimsun.game.rodeur.Constantes.KEY_VIE_MAX;
+import static com.dimsun.game.rodeur.Constantes.PREFS_NAME;
+import static com.dimsun.game.rodeur.Constantes.SETTINGS_PREFS_NAME;
+
 
 public class ScoreActivity extends AppCompatActivity {
 
@@ -18,8 +26,6 @@ public class ScoreActivity extends AppCompatActivity {
     int lastEncounter, dataVie, dataOr, dataVieMax;
     ImageView monstreImage;
     boolean hasSound;
-    final String SETTINGS_PREFS_NAME = "SETTINGS_PREFS";
-    final String PREFS_NAME = "RODEUR_PREFS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +33,13 @@ public class ScoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_score);
 
         SharedPreferences getSharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        lastEncounter = getSharedPref.getInt("KEY_ENCOUNTER", 0);
-        dataVie = getSharedPref.getInt("KEY_VIE", 0);
-        dataOr = getSharedPref.getInt("KEY_OR", 0);
-        dataVieMax = getSharedPref.getInt("KEY_VIE_MAX", 0);
+        lastEncounter = getSharedPref.getInt(KEY_LAST_ENCOUNTER, 0);
+        dataVie = getSharedPref.getInt(KEY_VIE, 0);
+        dataOr = getSharedPref.getInt(KEY_OR, 0);
+        dataVieMax = getSharedPref.getInt(KEY_VIE_MAX, 0);
 
         SharedPreferences sharedSettingsPref = getApplicationContext( ).getSharedPreferences(SETTINGS_PREFS_NAME, Context.MODE_PRIVATE);
-        hasSound = sharedSettingsPref.getBoolean("KEY_SON", false);
+        hasSound = sharedSettingsPref.getBoolean(KEY_HAS_SOUND, false);
 
         initImageDeadMonster();
         soundVictory();
@@ -48,7 +54,7 @@ public class ScoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 toggleSound();
-                startActivity(new Intent(ScoreActivity.this, activity_marche.class));
+                startActivity(new Intent(ScoreActivity.this, MarcheActivity.class));
                 finish();
             }
         });

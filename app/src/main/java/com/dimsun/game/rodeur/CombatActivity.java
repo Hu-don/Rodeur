@@ -14,12 +14,21 @@ import android.widget.TextView;
 import java.util.Random;
 
 import static android.util.Log.i;
+import static com.dimsun.game.rodeur.Constantes.KEY_CHANCE;
+import static com.dimsun.game.rodeur.Constantes.KEY_DEFENSE;
+import static com.dimsun.game.rodeur.Constantes.KEY_ESQUIVE;
+import static com.dimsun.game.rodeur.Constantes.KEY_FORCE;
+import static com.dimsun.game.rodeur.Constantes.KEY_HAS_SOUND;
+import static com.dimsun.game.rodeur.Constantes.KEY_MAGIE;
+import static com.dimsun.game.rodeur.Constantes.KEY_NIVEAU;
+import static com.dimsun.game.rodeur.Constantes.KEY_OR;
+import static com.dimsun.game.rodeur.Constantes.KEY_VIE;
+import static com.dimsun.game.rodeur.Constantes.KEY_VIE_MAX;
+import static com.dimsun.game.rodeur.Constantes.PREFS_NAME;
+import static com.dimsun.game.rodeur.Constantes.SETTINGS_PREFS_NAME;
 
 public class CombatActivity extends AppCompatActivity {
 
-
-    final String PREFS_NAME = "RODEUR_PREFS";
-    String SETTINGS_PREFS_NAME = "SETTINGS_PREFS";
     boolean isWinner, hasSound;
     int dataNiv, dataForce, dataDef, dataMagie, dataVie, dataEsq, dataOr, dataVieMax, dataChan;
     int mobVie, mobDegatPhy, mobDegatMag, mobDefPhy, mobDefMag;
@@ -43,20 +52,19 @@ public class CombatActivity extends AppCompatActivity {
         monstreImage = (ImageView) findViewById(R.id.imageMonstre);
 
         Context context = getApplicationContext();
-        String PREFS_NAME = "RODEUR_PREFS";
         SharedPreferences getSharedPref = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        dataNiv = getSharedPref.getInt("KEY_NIVEAU", 0);
-        dataVie = getSharedPref.getInt("KEY_VIE", 0);
-        dataForce = getSharedPref.getInt("KEY_FORCE", 0);
-        dataDef = getSharedPref.getInt("KEY_DEFENSE", 0);
-        dataEsq = getSharedPref.getInt("KEY_ESQUIVE", 0);
-        dataChan = getSharedPref.getInt("KEY_CHANCE", 0);
-        dataMagie = getSharedPref.getInt("KEY_MAGIE", 0);
-        dataOr = getSharedPref.getInt("KEY_OR", 0);
-        dataVieMax = getSharedPref.getInt("KEY_VIE_MAX", 0);
+        dataNiv = getSharedPref.getInt(KEY_NIVEAU, 0);
+        dataVie = getSharedPref.getInt(KEY_VIE, 0);
+        dataForce = getSharedPref.getInt(KEY_FORCE, 0);
+        dataDef = getSharedPref.getInt(KEY_DEFENSE, 0);
+        dataEsq = getSharedPref.getInt(KEY_ESQUIVE, 0);
+        dataChan = getSharedPref.getInt(KEY_CHANCE, 0);
+        dataMagie = getSharedPref.getInt(KEY_MAGIE, 0);
+        dataOr = getSharedPref.getInt(KEY_OR, 0);
+        dataVieMax = getSharedPref.getInt(KEY_VIE_MAX, 0);
 
         SharedPreferences sharedSettingsPref = getApplicationContext( ).getSharedPreferences(SETTINGS_PREFS_NAME, Context.MODE_PRIVATE);
-        hasSound = sharedSettingsPref.getBoolean("KEY_SON", false);
+        hasSound = sharedSettingsPref.getBoolean(KEY_HAS_SOUND, false);
 
         joueur = new Joueur(dataNiv, dataVie, dataVieMax, dataDef, dataEsq, dataChan, dataMagie, dataOr, dataForce);
 
@@ -248,7 +256,7 @@ public class CombatActivity extends AppCompatActivity {
         SharedPreferences.Editor editor;
         sharedPref = getApplicationContext( ).getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         editor = sharedPref.edit();
-        editor.putInt("KEY_OR", dataOr);
+        editor.putInt(KEY_OR, dataOr);
         i(TAG, "•••••••••••••••• Or du joueur " + dataOr + " •••••••••••••••••");
         editor.apply();
     }
@@ -258,7 +266,7 @@ public class CombatActivity extends AppCompatActivity {
         SharedPreferences.Editor editor;
         sharedPref = getApplicationContext( ).getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         editor = sharedPref.edit();
-        editor.putInt("KEY_ENCOUNTER", rMob);
+        editor.putInt(Constantes.KEY_LAST_ENCOUNTER, rMob);
         editor.apply();
     }
 

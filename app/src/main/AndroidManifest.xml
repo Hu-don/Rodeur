@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
-        <activity android:name=".activity_main_menu"
+        <activity android:name=".MenuActivity"
                   android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" >
             <intent-filter>
                 android:launchMode="singleTop"
@@ -24,28 +24,24 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity_nouveau"
-                  android:parentActivityName="com.dimsun.game.rodeur.activity_main_menu">
+        <activity android:name=".NouveauPersonnageActivity"
+                  android:parentActivityName="com.dimsun.game.rodeur.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.dimsun.game.rodeur.activity_main_menu" />
+                android:value="com.dimsun.game.rodeur.MenuActivity" />
     </activity>
 
-        <activity android:name=".activity_marche"
-                  android:parentActivityName="com.dimsun.game.rodeur.activity_main_menu">
+        <activity android:name=".MarcheActivity"
+                  android:parentActivityName="com.dimsun.game.rodeur.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.dimsun.game.rodeur.activity_main_menu" />
+                android:value="com.dimsun.game.rodeur.MenuActivity" />
         </activity>
 
-        <activity android:name=".ChoiceCombat_Activity"
+        <activity android:name=".ChoiceCombatActivity"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             >
         </activity>
-
-        <activity android:name=".activity_startcombat"
-                  android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            />
 
         <activity android:name=".CombatActivity"
                   android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
@@ -68,10 +64,10 @@
         </activity>
 
         <activity android:name=".OptionActivity"
-            android:parentActivityName="com.dimsun.game.rodeur.activity_main_menu">
+            android:parentActivityName="com.dimsun.game.rodeur.MenuActivity">
             <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.dimsun.game.rodeur.activity_main_menu" />
+            android:value="com.dimsun.game.rodeur.MenuActivity" />
         </activity>
     </application>
 
