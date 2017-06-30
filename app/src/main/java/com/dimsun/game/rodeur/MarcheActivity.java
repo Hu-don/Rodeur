@@ -26,6 +26,8 @@ import java.util.HashSet;
 import java.util.Random;
 
 import static android.util.Log.i;
+import static com.dimsun.game.rodeur.Constantes.PREFS_NAME;
+import static com.dimsun.game.rodeur.Constantes.SETTINGS_PREFS_NAME;
 
 
 /*************************************************************
@@ -36,8 +38,6 @@ import static android.util.Log.i;
 public class MarcheActivity extends Activity implements SensorEventListener {
 
     final String TAG = MarcheActivity.class.getSimpleName( );
-    final String PREFS_NAME = "RODEUR_PREFS";
-    String SETTINGS_PREFS_NAME = "SETTINGS_PREFS";
     boolean isDead, hasSound, hasDevMode;
     TextView showSteps;
     int dataVie, dataVieMax, pallier, dataCharDesign, stepsToBeAlive, dataNext, dataPoint, dataStep, dataNiv, stepRessurection;
@@ -171,7 +171,7 @@ public class MarcheActivity extends Activity implements SensorEventListener {
         if (hasDevMode) {
             stepRessurection = 10;
         } else {
-            stepRessurection = 500;
+            stepRessurection = 25;
         }
 
         stepsToBeAlive++;
